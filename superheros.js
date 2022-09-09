@@ -1,4 +1,5 @@
-const superheros = JSON.parse(`[
+const getSuperHeros =()=>{
+  return  JSON.parse(`[
     {
       "id": 1,
       "name": "A-Bomb",
@@ -30283,3 +30284,4 @@ const superheros = JSON.parse(`[
   ]`)
 
   
+}

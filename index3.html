@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        display: block;
+        margin: 10px;
+      }
+      div {
+        height: 50px;
+        width: 500px;
+        border: 1.5px solid black;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" name="tbox" id="tbox" />
+    <button onclick="readText()">Submit</button>
+    <label for="">apple</label>
+    <input type="radio" name="fruit" id="fruit1" value="apple" />
+    <label for="">orange</label>
+    <input type="radio" name="fruit" id="fruit2" value="orange" />
+    <label for="">banana</label>
+    <input type="radio" name="fruit" id="fruit" value="banana" />
+    <button onclick="printCheckedItem()">save</button>
+    <label for="">rose</label>
+    <input type="checkbox" name="flower" value="rose" />
+    <label for="">lilly</label>
+    <input type="checkbox" name="flower" value="lilly" />
+    <label for="">lotus</label>
+    <input type="checkbox" name="flower" value="lotus" />
+    <button onclick="flowerselection()">save</button>
+    <textarea id="myTextarea"></textarea>
+    <button onclick="readText2()">save</button>
+
+    <label for="cars">Choose a car:</label>
+
+    <select name="cars" id="cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+
+    <button onclick="readSelection()">save</button>
+    <input type="text" name="tbox" id="tbox2" value='' onchange="autotype()"/>
+    <div id="print"></div>
+
+    <script>
+      function readText() {
+        document.getElementById("print").innerHTML =
+          document.getElementById("tbox").value;
+      }
+      function printCheckedItem() {
+        document.getElementById("print").innerHTML = document.querySelectorAll(
+          "input[name='fruit']:checked"
+        )[0].value;
+      }
+      function flowerselection() {
+        let elements = document.querySelectorAll(
+          "input[name='flower']:checked"
+        );
+        let selections = "";
+        for (let index = 0; index < elements.length; index++) {
+          selections = selections + elements[index].value + ",";
+        }
+        document.getElementById("print").innerHTML = selections;
+      }
+      let readText2 = () => {
+        document.getElementById("print").innerHTML =
+          document.getElementById("myTextarea").value;
+      };
+      let readSelection = () => {
+        document.getElementById("print").innerHTML =
+          document.getElementById("cars").value;
+      };
+      let autotype = () => {
+        document.getElementById("print").innerHTML =
+          document.getElementById("tbox2").value;
+      };
+    </script>
+  </body>
+</html>
